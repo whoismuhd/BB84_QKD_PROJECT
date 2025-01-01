@@ -174,7 +174,7 @@ def eavesdrop_on_qubits(qubits):
         measurement_result = np.random.choice([0, 1], p=[0.5, 0.5])  # Simulated measurement
         eve_logs.append(f"Qubit {i + 1}: Eve measures and gets {measurement_result}.")
 
-        # Re-prepare the qubit based on Eve's measurement
+        # Reprepare the qubit based on Eve's measurement
         if measurement_result == 1:
             qc.x(0)  # Flip state
         if eve_basis[i] == 1:
