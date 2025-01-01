@@ -1,0 +1,51 @@
+Step 1 Explanation
+
+In this step, I created the quantum basis and implemented the initial quantum operations.
+Key: Mohammed's random sequence of bits (0 or 1) representing the bits he wants to send.
+Basis: The quantum basis (0 = standard, 1 = Hadamard) for encoding the qubits.
+
+Step 2 Explanation
+In this step, I simulated Mohammeds encoding and sending qubits.
+Mohammed will encode the bits into qubits using the chosen basis and "send" them to Ada
+The code uses Qiskit to create a single-qubit quantum circuit for each bit:
+Standard Basis (0): Encodes the qubit as either |0⟩ or |1⟩.
+Hadamard Basis (1): Encodes the qubit as either |+⟩ or |−⟩.
+
+Step 3
+In this step, Ada measures teh recieved qubits
+In this step, Ada randomly chooses a measurement basis and tries to decode the qubits Mohammed sent.
+Measurement Basis: Ada randomly selects a basis (standard or Hadamard) for each qubit.
+Simulated Measurement: Since we are not running on a real quantum computer, the measurement probabilities are approximated for now.
+
+Step 4
+In this step, I reconciled Mohammed's and Ada's Keys
+In this step, Mohammed and Ada compare their measurement bases to identify the bits they both measured in the same basis.
+Basis Comparison: Mohammed and Ada compare their bases. If they match, the corresponding bit is retained; otherwise, it’s discarded.
+Shared Key: The result is the key they both agree upon.
+
+Step 5
+In this step I verified the security of the shared key
+In this step, Mohammed and Ada will check for eavesdropping by comparing a subset of their shared key.
+Subset Selection: Mohammed and Ada randomly select a subset of the shared key bits to compare.
+Verification:
+If the subset matches, no eavesdropping is detected.
+If it doesn't match, eavesdropping may have occurred.
+
+Step 6
+I simulated eavesdropping, by introducing Eve's Random Measurement.
+I Modified the qubits before Ada receives them by having Eve measure each qubit with a random basis.
+Eve’s Random Basis: Eve chooses a random basis (standard or Hadamard) to measure each qubit.
+Effect of Eavesdropping: When Eve uses a basis different from Mohammed’s encoding or Ada’s decoding, it introduces errors.
+
+Step 7
+In thsi step I added noise by Simulating a noisy quantum channel to differentiate between noise and eavesdropping errors.
+Noise in a quantum channel introduces random errors in qubits, just like eavesdropping. This will allow us to compare noise-induced errors to eavesdropping-induced errors.
+Noise Probability: The probability of flipping a qubit’s state.
+Effect of Noise: Adds random errors to the transmitted qubits, similar to the effect of eavesdropping.
+
+Step 8 
+In this step, I logged Eve’s basis choices, measurements, and their impact on the qubits. This will help us analyze how Eve's actions introduce errors into the communication.
+Logging Eve’s Actions:
+Records which basis Eve chose (Standard or Hadamard).
+Logs the measurement result and how Eve re-prepared the qubit.
+Impact Analysis: Logs help in understanding the errors Eve introduces.
